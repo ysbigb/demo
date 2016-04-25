@@ -110,7 +110,7 @@
 
 				<!-- 主页面标题 -->
 				<header class="mui-bar mui-bar-nav">
-					<a class="mui-icon mui-action-menu iconfont icon-jfenlei2 mui-pull-right" style="color:black"></a>
+					<a class="mui-icon mui-action-menu iconfont icon-jfenlei2 mui-pull-right" id="offCanvasShow" style="color:black"></a>
 					<a class=" mui-pull-left"><img id="logo-a" src="images/index-logo.png" alt="" /></a>
 					<!--<h1 class="mui-title">标题</h1>-->
 				</header>
@@ -317,14 +317,15 @@
 
 			</div>
 		</div>
-		<script src="js/jquery1.42.min.js"></script>
+
 		<script type="text/javascript" charset="UTF-8">
-			mui('.mui-off-canvas-wrap').offCanvas('hide');
-			$(function() {
-				$(".mui-action-menu").bind("click", function() {
-					mui('.mui-off-canvas-wrap').offCanvas('show');
+			mui.init({
+					swipeBack: false,
 				});
+			document.getElementById('offCanvasShow').addEventListener('tap', function() {
+				mui('.mui-off-canvas-wrap').offCanvas('show');
 			});
+			
 			mui('"mui-off-canvas-left ').scroll();
 			mui('.mui-off-canvas-wrap').scroll();
 			mui('.mui-scroll-wrapper').scroll();
